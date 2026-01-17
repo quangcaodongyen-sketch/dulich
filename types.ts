@@ -1,3 +1,4 @@
+
 export enum EditMode {
   POSE = 'pose',
   OUTFIT = 'outfit',
@@ -77,6 +78,7 @@ export interface CompanionSettings {
 }
 
 export interface AppState {
+  userApiKey: string; // Key do người dùng nhập
   imageInput: File | null;
   imagePreviewUrl: string | null;
   activeModes: EditMode[]; 
@@ -104,6 +106,7 @@ export interface AppState {
 }
 
 export const DEFAULT_STATE: AppState = {
+  userApiKey: "",
   imageInput: null,
   imagePreviewUrl: null,
   activeModes: [EditMode.VIETNAM_TRAVEL], 
@@ -134,7 +137,7 @@ export const DEFAULT_STATE: AppState = {
     action: "standing next to main character",
   },
   outputStyle: OutputStyle.PHOTOREALISTIC,
-  aspectRatio: AspectRatio.PORTRAIT_9_16, // Default to 9:16 as requested/popular
+  aspectRatio: AspectRatio.PORTRAIT_9_16, 
   gender: Gender.AUTO,
   ageGroup: AgeGroup.AUTO,
   isGenerating: false,
